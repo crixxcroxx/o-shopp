@@ -1,0 +1,30 @@
+.product {
+  display: flex;
+
+  width: 100%;
+  border: 1px solid lightgrey;
+}
+
+.product > img {
+  width: auto;
+}
+
+/**/
+
+.btn-grp {
+  display: flex;
+  align-items: center;
+}
+
+.product-count {
+  padding: 0.31rem 1rem;
+  border: 1px solid lightgrey;
+}
+.btn-increment,
+.btn-decrement {
+  width: 3rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  border: none;
+  background-color: lightgrey;
+}

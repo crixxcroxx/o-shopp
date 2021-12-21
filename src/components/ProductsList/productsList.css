@@ -1,0 +1,12 @@
+.products-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+
+  padding-block-start: 6rem;
+}
+
+.products-list > * {
+  max-width: 225px;
+}
