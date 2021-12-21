@@ -1,12 +1,28 @@
+.product-wrapper {
+  padding-block: 6rem 3rem;
+}
+
 .product {
   display: flex;
+  gap: 1rem;
 
-  width: 100%;
   border: 1px solid lightgrey;
+  background-color: white;
 }
 
 .product > img {
-  width: auto;
+  max-width: 425px;
+  padding: 2rem;
+  object-fit: contain;
+}
+
+.product-body {
+  padding: 2rem;
+  background-color: #efefef;
+}
+
+.product-description > h3 {
+  margin: 0;
 }
 
 /**/
@@ -14,6 +30,7 @@
 .btn-grp {
   display: flex;
   align-items: center;
+  padding-block: 2rem;
 }
 
 .product-count {

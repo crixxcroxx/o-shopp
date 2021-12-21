@@ -1,21 +1,27 @@
 .product-card {
   display: flex;
   flex-direction: column;
+  gap: 0.5rem;
 
   width: 100%;
   border-radius: 3px;
+  color: black;
   border: 1px solid lightgrey;
-  background-color: #efefef;
+  background-color: white;
 }
 
 .product-card > img {
-  width: 100%;
+  aspect-ratio: 1 / 1;
+  padding: 1rem;
+  object-fit: contain;
   border-radius: 3px 3px 0 0;
 }
 
 .product-details {
-  padding: 0.5rem 0.8rem;
+  aspect-ratio: 1 / 1;
+  padding-inline: 0.8rem;
   font-size: 0.9rem;
+  background-color: #efefef;
 }
 
 .product-details-sub {

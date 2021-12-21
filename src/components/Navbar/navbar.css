@@ -5,10 +5,16 @@ nav {
   position: fixed;
   width: 100%;
   padding: 1rem 1.5rem;
+  z-index: 2;
   background-color: lightseagreen;
 }
 
 .company-name {
   margin: 0;
-  font-weight: 600;
+  color: black;
+}
+
+.company-name:hover {
+  margin: 0;
+  color: #1e1e1e;
 }

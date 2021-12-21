@@ -4,7 +4,7 @@
   flex-wrap: wrap;
   gap: 1rem;
 
-  padding-block-start: 6rem;
+  padding-block: 6rem 3rem;
 }
 
 .products-list > * {
