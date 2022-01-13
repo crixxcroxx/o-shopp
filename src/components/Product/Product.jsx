@@ -1,22 +1,43 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-import useStore from "../../store/store";
+import Btn from "../Btn";
+
+import { useStore } from "../../store/store";
 
 import "./product.css";
 
 export default function Product() {
   const { id: productId } = useParams()
 
-  const fetchProduct = useStore(state => state.fetchProduct)
-  const removeProduct = useStore(state => state.removeProduct)
-  const product = useStore(state => state.product)
+  const {
+    fetchProduct,
+    removeProduct,
+    product,
+    cart,
+    addToCart,
+    removeFromCart
+  } = useStore(state => state)
+
+  const [isOnCart, setIsOnCart] = useState(
+    cart.findIndex(item => item.id === parseInt(productId)) < 0 ? false : true
+  );
+
+  const handleClick = () => {
+    if(!isOnCart) {
+      addToCart(product)
+    } else {
+      removeFromCart(product.id)
+    }
+
+    setIsOnCart(!isOnCart)
+  }
 
   useEffect(() => {
     fetchProduct(productId)
 
     return () => removeProduct()
-  }, [productId, fetchProduct]);
+  }, [productId, fetchProduct, removeProduct]);
 
   return (
     <div className="product-wrapper">
@@ -33,12 +54,8 @@ export default function Product() {
               <p>{product.description}</p>
             </div>
 
-            <div className="btn-grp">
-              <button className="btn-decrement">-</button>
-
-              <div className="product-count">0</div>
-
-              <button className="btn-increment">+</button>
+            <div onClick={handleClick}>
+              <Btn>{!isOnCart ? "Add to Cart" : "Remove from Cart"}</Btn>
             </div>
           </div>
         </>)

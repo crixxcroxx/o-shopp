@@ -1,0 +1,7 @@
+button {
+  width: max-content;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border: none;
+  background-color: lightgrey;
+}

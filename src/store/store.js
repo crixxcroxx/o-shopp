@@ -1,6 +1,7 @@
 import create from "zustand";
+import produce from "immer";
 
-const useStore = create((set) => ({
+export const useStore = create(set => ({
   products: [],
   product: {},
   fetchProducts: async () => {
@@ -17,7 +18,24 @@ const useStore = create((set) => ({
 
     set({ product: await res.json() })
   },
-  removeProduct: () => set({ product: { } })
-}))
+  removeProduct: () => set({ product: { } }),
 
-export default useStore;
+  /* cart */
+  cart: [],
+  addToCart: (item) => {
+    set(
+      produce((draft) => {
+        const itemIndex = draft.cart.findIndex(el => el.id === item.id);
+        if(itemIndex === -1) draft.cart.unshift(item);
+      })
+    )
+  },
+  removeFromCart: (id) => {
+    set(
+      produce((draft) => {
+        const itemIndex = draft.cart.findIndex(el => el.id === id);
+        draft.cart.splice(itemIndex, 1);
+      })
+    )
+  }
+}))
